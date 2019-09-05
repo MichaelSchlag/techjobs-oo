@@ -9,7 +9,43 @@
 <div class="container body-content">
 
     <!-- // TODO #2 - display the job fields, one per row -->
+    <div th:unless="${theJob}">
+        <h2>No Results</h2>
+    </div>
 
+    <div th:fragment="jobs-list">
+        <div>
+
+            <h3>Result</h3>
+
+            <div>
+                <table th:fragment="single-job" class="job-listing">
+                    <tr>
+                        <th>Name</th>
+                        <td th:text="${theJob.getName()}"></td>
+                    </tr>
+                    <tr>
+                        <th>Employer</th>
+                        <td th:text="${theJob.getEmployer()}"></td>
+                    </tr>
+                    <tr>
+                        <th>Location</th>
+                        <td th:text="${theJob.getLocation()}"></td>
+                    </tr>
+                    <tr>
+                        <th>Position Type</th>
+                        <td th:text="${theJob.getPositionType()}"></td>
+                    </tr>
+                    <tr>
+                        <th>Skill</th>
+                        <td th:text="${theJob.getCoreCompetency()}"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
 </div>
 
 </body>
